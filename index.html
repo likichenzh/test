@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QEEQ 新手首租指南 | QEEQ First-Timer Guide</title>
+  <style>
+    :root {
+      --bg-start: #f5f7fb;
+      --bg-end: #ffffff;
+      --text-primary: #121826;
+      --text-secondary: #4b5565;
+      --brand-blue: #0052ff;
+      --glass-bg: rgba(255, 255, 255, 0.6);
+      --glass-border: rgba(255, 255, 255, 0.75);
+      --card-shadow: 0 12px 30px rgba(17, 24, 39, 0.08);
+      --card-shadow-hover: 0 24px 56px rgba(17, 24, 39, 0.18);
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --max-width: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "SF Pro Display", "Inter", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text-primary);
+      background: linear-gradient(160deg, var(--bg-start) 0%, var(--bg-end) 100%);
+      line-height: 1.65;
+      letter-spacing: 0.01em;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      padding: 14px 22px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      background: rgba(255, 255, 255, 0.72);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--text-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--brand-blue);
+    }
+
+    .main {
+      max-width: var(--max-width);
+      margin: 28px auto 40px;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: minmax(210px, 20%) 1fr;
+      gap: 22px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 88px;
+      align-self: start;
+      padding: 20px;
+      border-radius: var(--radius-lg);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--card-shadow);
+    }
+
+    .sidebar h2 {
+      font-size: 1rem;
+      margin-bottom: 14px;
+      color: var(--text-primary);
+    }
+
+    .side-nav {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+    }
+
+    .side-nav a {
+      display: block;
+      padding: 8px 10px;
+      border-radius: 10px;
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      transition: all 0.25s ease;
+    }
+
+    .side-nav a:hover,
+    .side-nav a.active {
+      color: var(--brand-blue);
+      background: rgba(0, 82, 255, 0.08);
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .hero-card {
+      grid-column: 1 / -1;
+      padding: 28px;
+    }
+
+    .hero-card h1 {
+      font-size: clamp(1.45rem, 2vw, 2rem);
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .hero-card p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      max-width: 70ch;
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: var(--radius-md);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: var(--card-shadow);
+      transition: transform 0.32s ease, box-shadow 0.32s ease;
+      scroll-margin-top: 95px;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .card .tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      color: var(--brand-blue);
+      background: rgba(0, 82, 255, 0.1);
+      padding: 4px 9px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .steps,
+    .list {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+    }
+
+    .steps li,
+    .list li {
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .steps li::before,
+    .list li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand-blue);
+      position: absolute;
+      left: 0;
+      top: 0.63em;
+      transform: translateY(-50%);
+    }
+
+    .footer {
+      margin: 24px auto 0;
+      max-width: var(--max-width);
+      padding: 0 20px 28px;
+    }
+
+    .footer-inner {
+      background: #edf0f5;
+      border: 1px solid #e3e7ee;
+      color: #1f2937;
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .footer p {
+      color: #334155;
+      font-size: 0.92rem;
+    }
+
+    .qr-placeholder {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      background: repeating-linear-gradient(
+        45deg,
+        #d7dde8,
+        #d7dde8 8px,
+        #cfd6e2 8px,
+        #cfd6e2 16px
+      );
+      border: 1px solid #c6cfdd;
+      display: grid;
+      place-items: center;
+      font-size: 0.72rem;
+      color: #3f4a5e;
+      font-weight: 600;
+    }
+
+    @media (max-width: 980px) {
+      .main {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        position: relative;
+        top: 0;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card p {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .navbar {
+        padding: 12px 14px;
+      }
+
+      .main {
+        margin-top: 18px;
+        padding: 0 14px;
+      }
+
+      .card,
+      .hero-card {
+        padding: 18px;
+      }
+
+      .footer {
+        padding: 0 14px 22px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-inner">
+      <div class="logo">QEEQ Guide</div>
+      <nav class="nav-links" aria-label="顶部导航">
+        <a href="https://www.qeeq.com/" target="_blank" rel="noopener noreferrer">官方网站</a>
+        <a href="https://www.qeeq.com/deals" target="_blank" rel="noopener noreferrer">特惠车款</a>
+        <a href="https://www.qeeq.com/car-rental" target="_blank" rel="noopener noreferrer">国际租车</a>
+        <a href="https://www.qeeq.com/contact-us" target="_blank" rel="noopener noreferrer">联系客服</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <aside class="sidebar">
+      <h2>快速导航</h2>
+      <ul class="side-nav">
+        <li><a href="#booking" class="active">预订流程</a></li>
+        <li><a href="#documents">必备证件</a></li>
+        <li><a href="#insurance">保险保障</a></li>
+        <li><a href="#pickup">取还车指南</a></li>
+        <li><a href="#why-qeeq">为什么选择QEEQ</a></li>
+      </ul>
+    </aside>
+
+    <section class="content">
+      <article class="card hero-card">
+        <h1>QEEQ 新手首租指南<br />QEEQ First-Timer Guide</h1>
+        <p>
+          面向首次出境租车用户，基于 QEEQ 官方服务标准梳理从预订到还车的关键步骤。你只需按流程准备证件、理解保障范围并完成验车，即可高效开启海外自驾。
+        </p>
+      </article>
+
+      <article id="booking" class="card">
+        <span class="tag">模块一</span>
+        <h3>3步极速预订</h3>
+        <ul class="steps">
+          <li>搜索：输入取还车地点与时间，快速筛选可选车款。</li>
+          <li>选择车行：对比车型、条款和用户评价，确认合适方案。</li>
+          <li>在线支付：完成下单并接收确认单，预订即时生效。</li>
+        </ul>
+      </article>
+
+      <article id="documents" class="card">
+        <span class="tag">模块二</span>
+        <h3>必备证件</h3>
+        <ul class="list">
+          <li>护照：用于身份核验，建议检查有效期覆盖行程。</li>
+          <li>驾照原件：须与主驾驶一致，确保信息清晰可读。</li>
+          <li>驾照国际翻译认证件（IDL）：提升境外门店受理效率。</li>
+          <li>信用卡：用于押金预授权，建议使用主驾驶名下卡片。</li>
+        </ul>
+      </article>
+
+      <article id="insurance" class="card">
+        <span class="tag">模块三</span>
+        <h3>保险说明</h3>
+        <ul class="list">
+          <li>超级全险保障：覆盖面更完整，降低出行不确定性。</li>
+          <li>0起赔额：符合条款情况下，减少先行垫付压力。</li>
+          <li>理赔专人跟进：协助整理材料并推动理赔流程闭环。</li>
+        </ul>
+      </article>
+
+      <article id="pickup" class="card">
+        <span class="tag">模块四</span>
+        <h3>取还流程</h3>
+        <ul class="list">
+          <li>寻找柜台：到达门店后按确认单指引办理取车。</li>
+          <li>验车签名：拍照留存车况并核对合同后再签字。</li>
+          <li>满油/同油还车：按合同油量规则归还，避免附加费用。</li>
+        </ul>
+      </article>
+
+      <article id="why-qeeq" class="card">
+        <span class="tag">模块五</span>
+        <h3>QEEQ 核心价值</h3>
+        <ul class="list">
+          <li>最优惠价格保证：同条件比价更透明，帮助控制预算。</li>
+          <li>24/7 中文客服：跨时区支持，遇到问题随时可联系。</li>
+          <li>免费取消政策：在规则范围内调整行程更灵活。</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <p>© 2026 QEEQ Guide. All rights reserved.</p>
+        <p>本页面旨在为出境游新手提供最全租车攻略，帮助你更安心地完成首次海外租车。</p>
+      </div>
+      <div class="qr-placeholder" aria-label="二维码占位图">QR 占位</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const links = Array.from(document.querySelectorAll(".side-nav a"));
+      const sections = links
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      function setActive(id) {
+        links.forEach((link) => {
+          const target = link.getAttribute("href").slice(1);
+          link.classList.toggle("active", target === id);
+        });
+      }
+
+      links.forEach((link) => {
+        link.addEventListener("click", function () {
+          const id = this.getAttribute("href").slice(1);
+          setActive(id);
+        });
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActive(entry.target.id);
+            }
+          });
+        },
+        {
+          root: null,
+          rootMargin: "-35% 0px -50% 0px",
+          threshold: 0
+        }
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    })();
+  </script>
+</body>
+</html>
